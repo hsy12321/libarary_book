@@ -1,0 +1,27 @@
+<% provide(:title, @room.rommid) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        ROOMID:&nbsp&nbsp&nbsp       <%= @room.rommid %>
+      </h1>
+      <h2>
+        BUILD:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp    <%= @room.build %>
+      </h2>
+      <h3>
+        SIZE:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp       <%= @room.size %>
+      </h3>
+      <h4>
+        STATUS:&nbsp&nbsp&nbsp&nbsp&nbsp      <% if @room.status==false%>
+                                                   avaliable
+                                                  <% else %>
+                                                   cannot book
+                                                   <% end %>
+      </h4>
+      <% if !@room.status?%>
+             <%= link_to "book", edit_room_path, class: "btn btn-lg btn-primary" %>
+      
+      <% end %>
+    </section>
+  </aside>
+</div>
